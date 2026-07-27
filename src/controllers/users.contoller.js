@@ -3,12 +3,13 @@ import qs from "qs"
 
 
 export function getAll(req, res) {  
-  let query = { 
-    LIMIT: 1, 
-    PAGE: 1, 
+  const { search, page, limit, sort } = qs.parse(req.query)
+  const query = { 
+    page: page ? parseInt(page) : 1, 
+    limit: limit ? parseInt(limit) : 5, 
   }
-  const search = qs.parse(req.query).search
-  const users = usersModel.findAll(search, query)
+  console.log(sort)
+  const users = usersModel.findAll(search, query, sort)
   res.json({ 
     "success": true, 
     "results": users
