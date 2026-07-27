@@ -21,8 +21,20 @@ export const users = JSON.parse(data)
 
 console.log(users)
 
-export function findAll() { 
-  return users
+export function findAll(search, query) {  
+  if (search === undefined) { 
+    return users
+  }
+  
+  if (search.name) { 
+    const filtered = users.filter((u) => u.fullname?.toLowerCase().includes(search.name?.toLowerCase()))
+    return filtered
+  }
+
+  if (search.email) { 
+    const filtered = users.filter((u) => u.email?.toLowerCase().includes(search.email.toLowerCase()))
+    return filtered
+  }
 }
 
 export function findById(id) { 

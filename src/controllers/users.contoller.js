@@ -1,7 +1,14 @@
 import * as usersModel from "../models/user.model.js"
+import qs from "qs"
 
-export function getAll(req, res) { 
-  const users = usersModel.findAll()
+
+export function getAll(req, res) {  
+  let query = { 
+    LIMIT: 1, 
+    PAGE: 1, 
+  }
+  const search = qs.parse(req.query).search
+  const users = usersModel.findAll(search, query)
   res.json({ 
     "success": true, 
     "results": users
