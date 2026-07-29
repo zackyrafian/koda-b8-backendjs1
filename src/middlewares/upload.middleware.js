@@ -27,9 +27,8 @@ function uploadMiddleware(req, res, next) {
       })
       return
     }
+    next()
   })
-  next()
 }
-
 
 export default uploadMiddleware
