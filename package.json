@@ -11,7 +11,9 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "multer": "^2.2.0",
+    "qs": "^6.15.3"
   },
   "devDependencies": {
     "@types/express": "github:types/express"
