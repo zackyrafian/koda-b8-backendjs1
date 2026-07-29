@@ -11,6 +11,7 @@ function authMiddlewware(req, res, next) {
       "success": false, 
       "message": "401"
     })
+    return
   }
   next();
 }
